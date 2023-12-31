@@ -102,3 +102,11 @@ function book(author, title, pages, yearOfCreation, readStatus) {
 
     return this;
 }
+
+function createBookEntry(book) {
+    console.log(book.author);
+    console.log(book.title);
+    console.log(book.pages);
+    console.log(book.yearOfCreation);
+    console.log(book.readStatus);
+}

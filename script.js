@@ -70,7 +70,7 @@ addBook.addEventListener('click', () => {
         submitBtn.setAttribute("type", "submit");
 
         submitBtn.addEventListener('click', (event) => {
-            if(author.value != "" && title.value != "" && pages.value != "" && yearOfCreation.value != "" && readStatus.checked === true) {
+            if(author.value != "" && title.value != "" && pages.value != "" && yearOfCreation.value != "") {
                 event.preventDefault();
                 createBookEntry(book(author.value, title.value, pages.value, yearOfCreation.value, readStatus.value))
             }

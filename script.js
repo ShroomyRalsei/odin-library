@@ -23,11 +23,15 @@ addBook.addEventListener('click', () => {
 
         author.setAttribute("type", "text");
 
+        author.setAttribute("required", "true")
+
         const title = document.createElement("input");
 
         title.setAttribute("placeholder", "Title");
 
         title.setAttribute("type", "text");
+
+        title.setAttribute("required", "true")
 
         const pages = document.createElement("input");
 
@@ -35,17 +39,23 @@ addBook.addEventListener('click', () => {
 
         pages.setAttribute("type", "number");
 
+        pages.setAttribute("required", "true")
+
         const yearOfCreation = document.createElement("input");
 
         yearOfCreation.setAttribute("placeholder", "Year Of Creation");
 
         yearOfCreation.setAttribute("type", "number");
 
+        yearOfCreation.setAttribute("required", "true")
+
         const readStatus = document.createElement("input");
 
         readStatus.setAttribute("type", "checkbox");
 
         readStatus.setAttribute("id", "read-status");
+
+        readStatus.setAttribute("required", "true");
 
         const readStatusLabel = document.createElement("label");
 

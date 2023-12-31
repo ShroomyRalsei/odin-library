@@ -1,3 +1,9 @@
+@media (prefers-color-scheme:dark) {
+    body {
+        background-color:black;
+    }
+}
+
 input {
     appearance:none;
     border:1px solid gainsboro;

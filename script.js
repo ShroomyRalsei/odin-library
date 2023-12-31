@@ -92,3 +92,13 @@ addBook.addEventListener('click', () => {
         inputContainer.appendChild(submitBtn);
     }
 })
+
+function book(author, title, pages, yearOfCreation, readStatus) {
+    this.author = author;
+    this.title = title;
+    this.pages = pages;
+    this.yearOfCreation = yearOfCreation;
+    this.readStatus = readStatus;
+
+    return this;
+}

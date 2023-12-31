@@ -4,9 +4,16 @@
     }
 }
 
-fieldset > div {
+body, fieldset > div {
     display:flex;
     align-items:center;
+}
+
+body {
+    flex-direction:column;
+}
+
+fieldset > div {
     justify-content: space-between;
 }
 

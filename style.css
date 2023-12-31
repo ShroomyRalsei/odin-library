@@ -4,6 +4,12 @@
     }
 }
 
+fieldset > div {
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+}
+
 input:not([type="checkbox"]) {
     appearance:none;
     border:1px solid gainsboro;

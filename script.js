@@ -4,6 +4,8 @@ const formContainer = document.querySelector(".form-container");
 
 const bookContainer = document.querySelector(".book-container");
 
+let bookArray = []
+
 addBook.addEventListener('click', () => {
     //This event listener fills the form container div and adds a form at the bottom of the page that when filled and submitted, will create a new entry for the submitted book
     if(formContainer.innerHTML == "") {
@@ -72,7 +74,10 @@ addBook.addEventListener('click', () => {
         submitBtn.addEventListener('click', (event) => {
             if(author.value != "" && title.value != "" && pages.value != "" && yearOfCreation.value != "") {
                 event.preventDefault();
-                createBookEntry(book(author.value, title.value, pages.value, yearOfCreation.value, readStatus.checked))
+
+                bookArray.push(new book(author.value, title.value, pages.value, yearOfCreation.value, readStatus.checked));
+
+                createBookEntries();
             }
         })
 
@@ -110,88 +115,96 @@ function book(author, title, pages, yearOfCreation, readStatus) {
     return this;
 }
 
-function createBookEntry(book) {
-    const tableContainer = document.createElement("div");
+function createBookEntries() {
+    bookContainer.innerHTML = "";
 
-    const table = document.createElement("table");
+    for(i=0; i < bookArray.length; i++) {
+        let iterationNumberForDeletion = `${i}`;
 
-    const tableRow = document.createElement("tr");
+        const tableContainer = document.createElement("div");
 
-    const authorCell = document.createElement("td");
+        const table = document.createElement("table");
 
-    authorCell.textContent = `Author: ${book.author}`;
+        const tableRow = document.createElement("tr");
 
-    const titleCell = document.createElement("td");
+        const authorCell = document.createElement("td");
 
-    titleCell.textContent = `Title: ${book.title}`;
+        authorCell.textContent = `Author: ${bookArray[i].author}`;
 
-    const pagesCell = document.createElement("td");
+        const titleCell = document.createElement("td");
 
-    pagesCell.textContent = `Pages: ${book.pages}`;
+        titleCell.textContent = `Title: ${bookArray[i].title}`;
 
-    const yearCell = document.createElement("td");
+        const pagesCell = document.createElement("td");
 
-    yearCell.textContent = `Year: ${book.yearOfCreation}`;
+        pagesCell.textContent = `Pages: ${bookArray[i].pages}`;
 
-    const statusCell = document.createElement("td");
+        const yearCell = document.createElement("td");
 
-    const statusBtn = document.createElement("button");
+        yearCell.textContent = `Year: ${bookArray[i].yearOfCreation}`;
 
-    statusBtn.setAttribute("type", "button");
+        const statusCell = document.createElement("td");
 
-    if (book.readStatus == true) {
-        statusBtn.textContent = "Finished";
-        statusBtn.setAttribute("class", "finished")
-    }
-    else {
-        statusBtn.textContent = "In progress";
-        statusBtn.setAttribute("class", "in-progress")
-    }
+        const statusBtn = document.createElement("button");
 
-    statusBtn.addEventListener('click', () => {
-        if (statusBtn.textContent == "Finished") {
-            statusBtn.textContent = "In progress";
-            statusBtn.setAttribute("class", "in-progress")
-        }
-        else {
+        statusBtn.setAttribute("type", "button");
+
+        if (bookArray[i].readStatus == true) {
             statusBtn.textContent = "Finished";
             statusBtn.setAttribute("class", "finished")
         }
-    })
+        else {
+            statusBtn.textContent = "In progress";
+            statusBtn.setAttribute("class", "in-progress")
+        }
 
-    const deleteCell = document.createElement("td");
+        statusBtn.addEventListener('click', () => {
+            if (statusBtn.textContent == "Finished") {
+                statusBtn.textContent = "In progress";
+                statusBtn.setAttribute("class", "in-progress");
+            }
+            else {
+                statusBtn.textContent = "Finished";
+                statusBtn.setAttribute("class", "finished");
+            }
+        })
 
-    const deleteBtn = document.createElement("button");
+        const deleteCell = document.createElement("td");
 
-    deleteBtn.setAttribute("type", "button");
+        const deleteBtn = document.createElement("button");
 
-    deleteBtn.textContent = "DELETE";
+        deleteBtn.setAttribute("type", "button");
 
-    deleteBtn.addEventListener("click", () => {
-        bookContainer.removeChild(tableContainer);
-    })
+        deleteBtn.textContent = "DELETE";
 
-    bookContainer.appendChild(tableContainer);
+        deleteBtn.addEventListener("click", () => {
+            bookContainer.removeChild(tableContainer);
+            bookArray.splice(+iterationNumberForDeletion, 1);
+        })
 
-    tableContainer.appendChild(table);
+        bookContainer.appendChild(tableContainer);
 
-    table.appendChild(tableRow);
+        tableContainer.appendChild(table);
 
-    tableRow.appendChild(authorCell);
+        table.appendChild(tableRow);
 
-    tableRow.appendChild(titleCell);
+        tableRow.appendChild(authorCell);
 
-    tableRow.appendChild(pagesCell);
+        tableRow.appendChild(titleCell);
 
-    tableRow.appendChild(yearCell);
+        tableRow.appendChild(pagesCell);
 
-    tableRow.appendChild(statusCell);
+        tableRow.appendChild(yearCell);
 
-    statusCell.appendChild(statusBtn);
+        tableRow.appendChild(statusCell);
 
-    tableRow.appendChild(deleteCell);
+        statusCell.appendChild(statusBtn);
 
-    deleteCell.appendChild(deleteBtn);
+        tableRow.appendChild(deleteCell);
+
+        deleteCell.appendChild(deleteBtn);
+
+    }
 
     formContainer.innerHTML = "";
 }

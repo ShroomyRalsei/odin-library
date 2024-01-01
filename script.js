@@ -147,17 +147,21 @@ function createBookEntry(book) {
 
     if (book.readStatus == true) {
         statusBtn.textContent = "Finished";
+        statusBtn.setAttribute("class", "finished")
     }
     else {
         statusBtn.textContent = "In progress";
+        statusBtn.setAttribute("class", "in-progress")
     }
 
     statusBtn.addEventListener('click', () => {
         if (statusBtn.textContent == "Finished") {
             statusBtn.textContent = "In progress";
+            statusBtn.setAttribute("class", "in-progress")
         }
         else {
             statusBtn.textContent = "Finished";
+            statusBtn.setAttribute("class", "finished")
         }
     })
 

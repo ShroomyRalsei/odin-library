@@ -2,7 +2,7 @@
     body, fieldset > div, input:not([type="checkbox"]) {
         background-color:rgb(16, 9, 40);
     }
-    body, fieldset > div, input:not([type="checkbox"]), div + button, div > button, .finished {
+    body, fieldset > div, input:not([type="checkbox"]), div + button, div > button, .finished, table > tr > td:nth-last-child(1) > button {
         color:gainsboro;
     }
     div > input:not([type="checkbox"]) {
@@ -41,4 +41,8 @@ button {
 
 .in-progress {
     background-color:yellow;
+}
+
+table > tr > td:nth-last-child(1) > button {
+    background-color:red;
 }

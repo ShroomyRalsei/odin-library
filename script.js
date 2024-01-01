@@ -152,6 +152,15 @@ function createBookEntry(book) {
         statusBtn.textContent = "In progress";
     }
 
+    statusBtn.addEventListener('click', () => {
+        if (statusBtn.textContent == "Finished") {
+            statusBtn.textContent = "In progress";
+        }
+        else {
+            statusBtn.textContent = "Finished";
+        }
+    })
+
     bookContainer.appendChild(tableContainer)
 
     tableContainer.appendChild(table);

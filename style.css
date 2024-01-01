@@ -25,7 +25,6 @@ fieldset > div {
 
 input:not([type="checkbox"]) {
     appearance:none;
-    border:1px solid gainsboro;
     font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
@@ -45,4 +44,8 @@ button {
 
 table > tr > td:nth-last-child(1) > button {
     background-color:red;
+}
+
+table > tr > td, input:not([type="checkbox"]) {
+    border:1px solid gainsboro;
 }

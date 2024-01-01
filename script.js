@@ -119,6 +119,7 @@ function createBookEntries() {
     bookContainer.innerHTML = "";
 
     for(i=0; i < bookArray.length; i++) {
+        //string that serves the purpose of storing the iteration so the button event listeners can use the value of i, which they can't use directly
         let iterationNumber = `${i}`;
 
         const tableContainer = document.createElement("div");

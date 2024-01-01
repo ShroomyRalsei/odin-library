@@ -111,12 +111,6 @@ function book(author, title, pages, yearOfCreation, readStatus) {
 }
 
 function createBookEntry(book) {
-    /*book.author
-    book.title
-    book.pages
-    book.yearOfCreation
-    book.readStatus*/
-
     const tableContainer = document.createElement("div");
 
     const table = document.createElement("table");
@@ -165,7 +159,19 @@ function createBookEntry(book) {
         }
     })
 
-    bookContainer.appendChild(tableContainer)
+    const deleteCell = document.createElement("td");
+
+    const deleteBtn = document.createElement("button");
+
+    deleteBtn.setAttribute("type", "button");
+
+    deleteBtn.textContent = "DELETE";
+
+    deleteBtn.addEventListener("click", () => {
+        bookContainer.removeChild(tableContainer);
+    })
+
+    bookContainer.appendChild(tableContainer);
 
     tableContainer.appendChild(table);
 
@@ -182,6 +188,10 @@ function createBookEntry(book) {
     tableRow.appendChild(statusCell);
 
     statusCell.appendChild(statusBtn);
+
+    tableRow.appendChild(deleteCell);
+
+    deleteCell.appendChild(deleteBtn);
 
     formContainer.innerHTML = "";
 }

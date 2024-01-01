@@ -2,7 +2,7 @@
     body, fieldset > div, input:not([type="checkbox"]) {
         background-color:rgb(16, 9, 40);
     }
-    body, fieldset > div, input:not([type="checkbox"]), div + button, div > button {
+    body, fieldset > div, input:not([type="checkbox"]), div + button, div > button, .finished {
         color:gainsboro;
     }
     div > input:not([type="checkbox"]) {
@@ -35,6 +35,10 @@ button {
     border:none;
 }
 
-.add-book, .form-container > form > fieldset > div > button {
+.add-book, .form-container > form > fieldset > div > button, .finished {
     background-color:green;
+}
+
+.in-progress {
+    background-color:yellow;
 }

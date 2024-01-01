@@ -111,9 +111,64 @@ function book(author, title, pages, yearOfCreation, readStatus) {
 }
 
 function createBookEntry(book) {
-    console.log(book.author);
-    console.log(book.title);
-    console.log(book.pages);
-    console.log(book.yearOfCreation);
-    console.log(book.readStatus);
+    /*book.author
+    book.title
+    book.pages
+    book.yearOfCreation
+    book.readStatus*/
+
+    const tableContainer = document.createElement("div");
+
+    const table = document.createElement("table");
+
+    const tableRow = document.createElement("tr");
+
+    const authorCell = document.createElement("td");
+
+    authorCell.textContent = book.author;
+
+    const titleCell = document.createElement("td");
+
+    titleCell.textContent = book.title;
+
+    const pagesCell = document.createElement("td");
+
+    pagesCell.textContent = book.pages;
+
+    const yearCell = document.createElement("td");
+
+    yearCell.textContent = book.yearOfCreation;
+
+    const statusCell = document.createElement("td");
+
+    const statusBtn = document.createElement("button");
+
+    statusBtn.setAttribute("type", "button");
+
+    if (book.readStatus == true) {
+        statusBtn.textContent = "Finished";
+    }
+    else {
+        statusBtn.textContent = "In progress";
+    }
+
+    bookContainer.appendChild(tableContainer)
+
+    tableContainer.appendChild(table);
+
+    table.appendChild(tableRow);
+
+    tableRow.appendChild(authorCell);
+
+    tableRow.appendChild(titleCell);
+
+    tableRow.appendChild(pagesCell);
+
+    tableRow.appendChild(yearCell);
+
+    tableRow.appendChild(statusCell);
+
+    statusCell.appendChild(statusBtn);
+
+    formContainer.innerHTML = "";
 }

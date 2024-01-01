@@ -49,3 +49,7 @@ table > tr > td:nth-last-child(1) > button {
 table > tr > td, input:not([type="checkbox"]) {
     border:1px solid gainsboro;
 }
+
+table {
+    margin-bottom:10px;
+}

@@ -125,19 +125,19 @@ function createBookEntry(book) {
 
     const authorCell = document.createElement("td");
 
-    authorCell.textContent = book.author;
+    authorCell.textContent = `Author: ${book.author}`;
 
     const titleCell = document.createElement("td");
 
-    titleCell.textContent = book.title;
+    titleCell.textContent = `Title: ${book.title}`;
 
     const pagesCell = document.createElement("td");
 
-    pagesCell.textContent = book.pages;
+    pagesCell.textContent = `Pages: ${book.pages}`;
 
     const yearCell = document.createElement("td");
 
-    yearCell.textContent = book.yearOfCreation;
+    yearCell.textContent = `Year: ${book.yearOfCreation}`;
 
     const statusCell = document.createElement("td");
 

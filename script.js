@@ -119,7 +119,7 @@ function createBookEntries() {
     bookContainer.innerHTML = "";
 
     for(i=0; i < bookArray.length; i++) {
-        let iterationNumberForDeletion = `${i}`;
+        let iterationNumber = `${i}`;
 
         const tableContainer = document.createElement("div");
 
@@ -162,10 +162,12 @@ function createBookEntries() {
             if (statusBtn.textContent == "Finished") {
                 statusBtn.textContent = "In progress";
                 statusBtn.setAttribute("class", "in-progress");
+                bookArray[+iterationNumber].readStatus = false;
             }
             else {
                 statusBtn.textContent = "Finished";
                 statusBtn.setAttribute("class", "finished");
+                bookArray[+iterationNumber].readStatus = true;
             }
         })
 
@@ -179,7 +181,7 @@ function createBookEntries() {
 
         deleteBtn.addEventListener("click", () => {
             bookContainer.removeChild(tableContainer);
-            bookArray.splice(+iterationNumberForDeletion, 1);
+            bookArray.splice(+iterationNumber, 1);
         })
 
         bookContainer.appendChild(tableContainer);

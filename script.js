@@ -75,7 +75,7 @@ addBook.addEventListener('click', () => {
             if(author.value != "" && title.value != "" && pages.value != "" && yearOfCreation.value != "") {
                 event.preventDefault();
 
-                bookArray.push(new book(author.value, title.value, pages.value, yearOfCreation.value, readStatus.checked));
+                bookArray.push(new Book(author.value, title.value, pages.value, yearOfCreation.value, readStatus.checked));
 
                 createBookEntries();
             }
@@ -105,14 +105,14 @@ addBook.addEventListener('click', () => {
     }
 })
 
-function book(author, title, pages, yearOfCreation, readStatus) {
-    this.author = author;
-    this.title = title;
-    this.pages = pages;
-    this.yearOfCreation = yearOfCreation;
-    this.readStatus = readStatus;
-
-    return this;
+class Book {
+    constructor(author, title, pages, yearOfCreation, readStatus) {
+        this.author = author;
+        this.title = title;
+        this.pages = pages;
+        this.yearOfCreation = yearOfCreation;
+        this.readStatus = readStatus;
+    }
 }
 
 function createBookEntries() {
